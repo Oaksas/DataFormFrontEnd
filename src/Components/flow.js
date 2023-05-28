@@ -1,78 +1,43 @@
-import { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import ReactFlow, {
+  MiniMap,
+  Controls,
+  Background,
+  useNodesState,
+  useEdgesState,
   addEdge,
-  applyEdgeChanges,
-  applyNodeChanges,
 } from "reactflow";
+
 import "reactflow/dist/style.css";
 
-import TextUpdaterNode from "./TextUpdaterNode";
-
-import "../Assets/css/text-updater-node.css";
-
-const rfStyle = {
-  backgroundColor: "#B8CEFF",
-};
-
 const initialNodes = [
-  {
-    id: "node-1",
-    type: "textUpdater",
-    position: { x: 0, y: 0 },
-    data: { value: 123 },
-  },
-  {
-    id: "node-2",
-    type: "output",
-    targetPosition: "top",
-    position: { x: 0, y: 200 },
-    data: { label: "node 2" },
-  },
-  {
-    id: "node-3",
-    type: "output",
-    targetPosition: "top",
-    position: { x: 200, y: 200 },
-    data: { label: "node 3" },
-  },
+  { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
+  { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
+  { id: "3", position: { x: 20, y: 100 }, data: { label: "Label" } },
+  { id: "4", position: { x: 20, y: 100 }, data: { label: "Label" } },
 ];
-
-const initialEdges = [
-  { id: "edge-1", source: "node-1", target: "node-2", sourceHandle: "a" },
-  { id: "edge-2", source: "node-1", target: "node-3", sourceHandle: "b" },
-];
-
-// we define the nodeTypes outside of the component to prevent re-renderings
-// you could also use useMemo inside the component
-const nodeTypes = { textUpdater: TextUpdaterNode };
+const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
 
 export default function Flow() {
-  const [nodes, setNodes] = useState(initialNodes);
-  const [edges, setEdges] = useState(initialEdges);
+  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
-  const onNodesChange = useCallback(
-    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    [setNodes]
-  );
-  const onEdgesChange = useCallback(
-    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-    [setEdges]
-  );
   const onConnect = useCallback(
-    (connection) => setEdges((eds) => addEdge(connection, eds)),
+    (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
 
   return (
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      nodeTypes={nodeTypes}
-      fitView
-      style={rfStyle}
-    />
+    <div style={{ width: "80vw", height: "100vh" }}>
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        onConnect={onConnect}
+      >
+        <Background variant="dots" gap={12} size={1} />
+      </ReactFlow>
+    </div>
   );
 }
