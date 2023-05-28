@@ -1,15 +1,22 @@
-import { Grid } from "@material-ui/core";
 import React from "react";
+import TabMenu from "../Components/tabMenu";
+import RightMenuList from "../Components/rightMenuList";
 
-function rightSideMenu() {
+const tabs = [
+  {
+    label: "Properties",
+    content: <RightMenuList />,
+  },
+  {
+    label: "Variables",
+    content: <></>,
+  },
+];
+
+export default function RightSideMenu() {
   return (
     <div>
-      <Grid container>
-        <Grid item xs={2}></Grid>
-        <Grid item xs={7}></Grid>
-      </Grid>
+      <TabMenu tabs={tabs} initialTab={0} />
     </div>
   );
 }
-
-export default rightSideMenu;

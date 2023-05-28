@@ -20,6 +20,7 @@ import RunButtons from "./runButtons";
 import { Grid } from "@material-ui/core";
 import FilesTabComponent from "./fIlesTabSection";
 import ConfigUser from "./configUser";
+import { leftNavItems } from "../Utils";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -157,7 +158,7 @@ export default function LeftNavigation() {
         </div>
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          {leftNavItems.map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}

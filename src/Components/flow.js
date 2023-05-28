@@ -28,7 +28,7 @@ export default function Flow() {
   );
 
   return (
-    <div style={{ width: "80vw", height: "100vh" }}>
+    <div style={{ width: "75vw", height: "100vh" }}>
       <ReactFlow
         nodes={nodes}
         edges={edges}

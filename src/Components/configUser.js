@@ -7,6 +7,7 @@ import PersonIcon from "@material-ui/icons/Person";
 const useStyles = makeStyles((theme) => ({
   buttonGroup: {
     marginTop: theme.spacing(1),
+    marginLeft: theme.spacing(10),
     "& .MuiButton-root": {
       border: "none",
     },

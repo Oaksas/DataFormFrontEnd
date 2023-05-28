@@ -59,7 +59,7 @@ export default function FilesTabComponent() {
       <Tabs
         value={value}
         onChange={handleChange}
-        indicatorColor="transparent"
+        indicatorColor="#455a64"
         textColor="white"
         variant="scrollable"
         scrollButtons="auto"
