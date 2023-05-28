@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  makeStyles,
-  Fab,
-  Paper,
-  Typography,
-  ClickAwayListener,
-} from "@material-ui/core";
-import CodeIcon from "@material-ui/icons/Code";
+import { makeStyles, ClickAwayListener } from "@material-ui/core";
 import Console from "../Components/buttomConsole";
 
 const useStyles = makeStyles((theme) => ({
