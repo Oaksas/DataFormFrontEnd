@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(4),
   },
 }));
-export default function RightMenuRadioButtonsGroup() {
+export default function SendFile() {
   const classes = useStyles();
 
   const [value, setValue] = React.useState("female");

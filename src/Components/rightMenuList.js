@@ -12,7 +12,8 @@ import {
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import { rightMenuListItems } from "../Utils";
-import RightMenuRadioButtonsGroup from "./rightMenuRadioGroup";
+import SendFile from "./rightMenuRadioGroup";
+import TextFieldWithButton from "./textFieldWithButton";
 
 const useStyles = makeStyles((theme) => ({
   nested: {
@@ -68,7 +69,9 @@ export default function NestedList() {
         size="small"
       />
 
-      <RightMenuRadioButtonsGroup />
+      <SendFile />
+      <TextFieldWithButton />
+      <SendFile />
     </List>
   );
 }

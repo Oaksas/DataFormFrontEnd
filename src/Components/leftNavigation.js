@@ -14,13 +14,12 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import RunButtons from "./runButtons";
 import { Grid } from "@material-ui/core";
 import FilesTabComponent from "./fIlesTabSection";
 import ConfigUser from "./configUser";
 import { leftNavItems } from "../Utils";
+import { AccessTime, Subject } from "@material-ui/icons";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -161,7 +160,7 @@ export default function LeftNavigation() {
           {leftNavItems.map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <AccessTime /> : <Subject />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -169,10 +168,10 @@ export default function LeftNavigation() {
         </List>
         <Divider />
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
+          {leftNavItems.slice(1, 4).map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <AccessTime /> : <Subject />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>

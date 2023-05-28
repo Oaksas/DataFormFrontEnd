@@ -5,19 +5,12 @@ import { Grid, createTheme, makeStyles } from "@material-ui/core";
 import "./App.css";
 import RightSideMenu from "./Views/rightSideMenu";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import ConsoleMenu from "./Views/console";
 
 // Create a dark theme
 const theme = createTheme({
   palette: {
     type: "dark",
-    palette: {
-      primary: {
-        main: "#ffffff", // Example primary color
-      },
-      secondary: {
-        main: "#f50057", // Example secondary color
-      },
-    },
   },
 });
 
@@ -43,6 +36,7 @@ function App() {
           <RightSideMenu />
         </Grid>
       </Grid>
+      <ConsoleMenu />
     </ThemeProvider>
   );
 }
